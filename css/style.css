@@ -1,17 +1,12 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 /**{
-    border: 1px solid black;
-     
+    border: 1px solid black; 
 }*/
 
 body { 
     font-family: Poppins;
 }
-
-/* ---------------------------------------------------
-    SIDEBAR STYLE
------------------------------------------------------ */
 
 .wrapper {
     display: flex;
@@ -24,12 +19,12 @@ body {
     max-width: 16vw;
     color: #fff;
     transition: all 0.3s;
-    text-align: center;
 }
 
 .sidebar-header{
     padding: 1rem;
     margin-bottom: 3rem;
+    text-align: center;
 }
 
 .components li {
@@ -45,6 +40,17 @@ body {
 .components li a{
     text-decoration: none;
     color: #fff;
+}
+
+.bottomText{
+    width: 100%;
+    position: fixed;
+    margin-bottom: 10px;
+    bottom: 0;
+}
+
+#expandSidebar{
+    display: none;
 }
 
 .navbar {
@@ -67,57 +73,6 @@ body {
     border: 3px solid;
 }
 
-
-
-
-/*#sidebar.active {
-    margin-left: -250px;
-}*/
-
-/*#sidebar .sidebar-header {
-    padding: 20px;
-    background: #6d7fcc;
-}*/
-
-/*#sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #47748b;
-}*/
-
-
-/*#sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
-}*/
-
-/*#sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
-}*/
-
-/*#sidebar ul li.active>a,
-a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
-}*/
-
-/*a[data-toggle="collapse"] {
-    position: relative;
-}*/
-
-/*ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #6d7fcc;
-}*/
-
-
-
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
-
 #content {
     width: 100%;
     min-height: 100vh;
@@ -130,12 +85,15 @@ a[aria-expanded="true"] {
 
 @media (max-width: 768px) {
     #sidebar {
-        margin-left: -250px;
+        display: none;
     }
     #sidebar.visible {
-        margin-left: 0;
+        display: block;
+        max-width: 20vw;
     }
-    #sidebarCollapse span {
-        display: none;
+    #expandSidebar{
+        display: inline-block;
+        height: 64px;
+        width: 10vw;
     }
 }

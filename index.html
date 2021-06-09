@@ -20,7 +20,7 @@
                 <h2>Logo</h2>
             </div>
     
-            <ul class="list-unstyled components">
+            <ul class="list-unstyled components text-center">
                 
                 <li>
                     <a href="#"><i class="fas fa-chart-pie"></i> Dashboard</a>
@@ -44,25 +44,25 @@
                     <a href="#"> <i class="fas fa-cog"></i> Customizations</a>
                 </li>
             </ul>
+
+            <ul class="list-unstyled components bottomText">
+                <li>Select Your Team</li>
+                <li><button class="btn btn-outline-success bg-white">Team Name &emsp; <i class="fas fa-caret-up"></i></button></li>
+            </ul>
         </nav>
+
+        
     
         <!-- Page Content  -->
         <div id="content" class="bg-light">
-    
-            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            
+            <button id="expandSidebar" class="float-left" type="button">
+                <i class="fas fa-bars"></i>
+            </button>
 
-                <!--button type="button" id="sidebarCollapse" class="btn btn-info">
-                    <i class="fas fa-align-left"></i>
-                    <span>Toggle Sidebar</span>
-                </button-->
-
-
-                <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="nav navbar-nav ">
+            <nav class="navbar navbar-expand navbar-light bg-white">
+                <div class="navbar-body">
+                    <ul class="nav navbar-nav mr-auto">
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Teams</a>
                         </li>
@@ -73,62 +73,347 @@
                             <a class="nav-link" href="#">U19</a>
                         </li>
                     </ul>
+
                 </div>
-            
             </nav>
+
+            
 
             <!--buttons-->
             <section class="container my-4">
                 <span class="ml-auto">
-                    <button type="button" class="btn btn-success">Add New Schedule</button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add New Schedule</button>
                 </span>
                 <span class="float-right">    
                     <button type="button" class="btn btn-outline-secondary bg-white shadow-sm"><i class='fas fa-search'></i> Search your schedule</button>
                 </span>
             </section>
 
+            <!-- The Modal -->
+            <div class="modal" id="myModal">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Create New Schedule</h4>
+                        </div>
+                
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <form>
+                                <div class="row">   
+                                    <div class="form-group col-lg-12">
+                                        <label for="name">Schedule Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter name" id="name">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="form-group col-lg-4">
+                                        <label for="sDate">Start Date</label>
+                                        <input type="date" class="form-control" placeholder="Select start date" id="sDate">
+                                    </div>
+
+                                    <div class="form-group col-lg-4">
+                                        <label for="eDate">End Date</label>
+                                        <input type="date" class="form-control" placeholder="Select end date" id="eDate">
+                                    </div>
+
+                                    <div class="form-group col-lg-4">
+                                        <label for="weeks">Enter No. of Weeks</label>
+                                        <input type="number" class="form-control" placeholder="Enter No. of weeks" id="weeks">
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-lg-6">
+                                        <button type="button" class="btn btn-light btn-block" data-dismiss="modal">Close</button>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <button type="button" class="btn btn-success btn-block" onClick="addSchedule()">Create</button>
+                                    </div>
+
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
             <!--schedules-->
             <section class="container">
-                <div class="card bg-white text-secondary my-4 shadow">
-                    <div class="card-header bg-white">
-                        <span class="float-right">
-                            <button class="btn btn-outline-secondary border border-0"><i class="fas fa-pen fa-lg"></i></button>
-                            <button class="btn btn-outline-danger border border-0"><i class="fas fa-trash fa-lg"></i></button>
-                            <button class="btn btn-outline-success border border-0" data-toggle="collapse" data-target="#collapseContent1"><i class="fas fa-caret-down fa-2x"></i></button>
-                        </span>
-                        <span>
-                            <h5 class="text-body ">Winter Training Schedule</h5>
-                            4 weeks &ensp; | &ensp; 12 Sessions
-                        </span>
-                    </div>
+                <div id="accordion">
+                    <div class="card bg-white text-secondary my-4 shadow">
+                        <div class="card-header bg-white">
+                            <span class="float-right">
+                                <button class="btn btn-outline-secondary border border-0"><i class="fas fa-pen fa-lg"></i></button>
+                                <button class="btn btn-outline-danger border border-0"><i class="fas fa-trash fa-lg"></i></button>
+                                <a href="#collapseContent1" class="card-link btn btn-outline-success border border-0" data-toggle="collapse"><i class="fas fa-caret-up fa-2x"></i></a>
+                            </span>
+                            <span>
+                                <h5 class="text-body ">Winter Training Schedule</h5>
+                                4 weeks &ensp; | &ensp; 12 Sessions
+                            </span>
+                        </div>
 
-                    <div class="card-body collapse show" id="collapseContent1">
-                        <div class="row mb-4">
-                            <div class="col-md-2">
-                                <span class="small">START DATE</span> <br>
-                                <span class="text-body">25 January 2020</span>
-                            </div>
-                            
-                            <div class="col-md-2">
-                                <span class="small">END DATE</span> <br>
-                                <span class="text-body">25 January 2020</span>
-                            </div>
+                        <div id="collapseContent1" class="collapse show" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="row mb-4">
+                                    <div class="col-md-2">
+                                        <span class="small">START DATE</span> <br>
+                                        <span class="text-body">25 January 2020</span>
+                                    </div>
+                                    
+                                    <div class="col-md-2">
+                                        <span class="small">END DATE</span> <br>
+                                        <span class="text-body">25 January 2020</span>
+                                    </div>
 
-                            <div class="col-md-2 offset-6 text-right">
-                                <button type="button" class="btn btn-success">Update</button>
+                                    <div class="col-md-2 offset-6 text-right">
+                                        <button type="button" class="btn btn-success">Update</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex flex-md-row justify-content-sm-around flex-column mt-5 mb-3 brdr">
+                                    <button type="button" class="btn btn-outline-secondary p-3"><i class="far fa-circle"></i> SUNDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> MONDAY</button>
+                                    <button type="button" class="btn btn-outline-success" id="activeDay"><i class="fas fa-circle"></i> TUESDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> WEDNESDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> THURSDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> FRIDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> SATURDAY</button>                             
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="d-flex justify-content-around mt-5 mb-3 brdr">
-                            <button type="button" class="btn btn-outline-secondary p-3"><i class="far fa-circle"></i> SUNDAY</button>
-                            <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> MONDAY</button>
-                            <button type="button" class="btn btn-outline-success" id="activeDay"><i class="fas fa-circle"></i> TUESDAY</button>
-                            <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> WEDNESDAY</button>
-                            <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> THURSDAY</button>
-                            <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> FRIDAY</button>
-                            <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> SATURDAY</button>                             
+                    </div>
+
+                    <div class="card bg-white text-secondary my-4 shadow">
+                        <div class="card-header bg-white">
+                            <span class="float-right">
+                                <button class="btn btn-outline-secondary border border-0"><i class="fas fa-pen fa-lg"></i></button>
+                                <button class="btn btn-outline-danger border border-0"><i class="fas fa-trash fa-lg"></i></button>
+                                <a href="#collapseContent2" class="card-link btn btn-outline-success border border-0" data-toggle="collapse"><i class="fas fa-caret-down fa-2x"></i></a>
+                            </span>
+                            <span>
+                                <h5 class="text-body ">Winter Training Schedule</h5>
+                                4 weeks &ensp; | &ensp; 12 Sessions
+                            </span>
+                        </div>
+
+                        <div id="collapseContent2" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="row mb-4">
+                                    <div class="col-md-2">
+                                        <span class="small">START DATE</span> <br>
+                                        <span class="text-body">25 January 2020</span>
+                                    </div>
+                                    
+                                    <div class="col-md-2">
+                                        <span class="small">END DATE</span> <br>
+                                        <span class="text-body">25 January 2020</span>
+                                    </div>
+
+                                    <div class="col-md-2 offset-6 text-right">
+                                        <button type="button" class="btn btn-success">Update</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-5 mb-3">
+                                    <button type="button" class="btn btn-outline-secondary p-3"><i class="far fa-circle"></i> SUNDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> MONDAY</button>
+                                    <button type="button" class="btn btn-outline-success" id="activeDay"><i class="fas fa-circle"></i> TUESDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> WEDNESDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> THURSDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> FRIDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> SATURDAY</button>                             
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="card bg-white text-secondary my-4 shadow">
+                        <div class="card-header bg-white">
+                            <span class="float-right">
+                                <button class="btn btn-outline-secondary border border-0"><i class="fas fa-pen fa-lg"></i></button>
+                                <button class="btn btn-outline-danger border border-0"><i class="fas fa-trash fa-lg"></i></button>
+                                <a href="#collapseContent3" class="card-link btn btn-outline-success border border-0" data-toggle="collapse"><i class="fas fa-caret-down fa-2x"></i></a>
+                            </span>
+                            <span>
+                                <h5 class="text-body ">Winter Training Schedule</h5>
+                                4 weeks &ensp; | &ensp; 12 Sessions
+                            </span>
+                        </div>
+
+                        <div id="collapseContent3" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="row mb-4">
+                                    <div class="col-md-2">
+                                        <span class="small">START DATE</span> <br>
+                                        <span class="text-body">25 January 2020</span>
+                                    </div>
+                                    
+                                    <div class="col-md-2">
+                                        <span class="small">END DATE</span> <br>
+                                        <span class="text-body">25 January 2020</span>
+                                    </div>
+
+                                    <div class="col-md-2 offset-6 text-right">
+                                        <button type="button" class="btn btn-success">Update</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-around mt-5 mb-3 brdr">
+                                    <button type="button" class="btn btn-outline-secondary p-3"><i class="far fa-circle"></i> SUNDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> MONDAY</button>
+                                    <button type="button" class="btn btn-outline-success" id="activeDay"><i class="fas fa-circle"></i> TUESDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> WEDNESDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> THURSDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> FRIDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> SATURDAY</button>                             
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-white text-secondary my-4 shadow">
+                        <div class="card-header bg-white">
+                            <span class="float-right">
+                                <button class="btn btn-outline-secondary border border-0"><i class="fas fa-pen fa-lg"></i></button>
+                                <button class="btn btn-outline-danger border border-0"><i class="fas fa-trash fa-lg"></i></button>
+                                <a href="#collapseContent4" class="card-link btn btn-outline-success border border-0" data-toggle="collapse"><i class="fas fa-caret-down fa-2x"></i></a>
+                            </span>
+                            <span>
+                                <h5 class="text-body ">Winter Training Schedule</h5>
+                                4 weeks &ensp; | &ensp; 12 Sessions
+                            </span>
+                        </div>
+
+                        <div id="collapseContent4" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="row mb-4">
+                                    <div class="col-md-2">
+                                        <span class="small">START DATE</span> <br>
+                                        <span class="text-body">25 January 2020</span>
+                                    </div>
+                                    
+                                    <div class="col-md-2">
+                                        <span class="small">END DATE</span> <br>
+                                        <span class="text-body">25 January 2020</span>
+                                    </div>
+
+                                    <div class="col-md-2 offset-6 text-right">
+                                        <button type="button" class="btn btn-success">Update</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-around mt-5 mb-3 brdr">
+                                    <button type="button" class="btn btn-outline-secondary p-3"><i class="far fa-circle"></i> SUNDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> MONDAY</button>
+                                    <button type="button" class="btn btn-outline-success" id="activeDay"><i class="fas fa-circle"></i> TUESDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> WEDNESDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> THURSDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> FRIDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> SATURDAY</button>                             
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-white text-secondary my-4 shadow">
+                        <div class="card-header bg-white">
+                            <span class="float-right">
+                                <button class="btn btn-outline-secondary border border-0"><i class="fas fa-pen fa-lg"></i></button>
+                                <button class="btn btn-outline-danger border border-0"><i class="fas fa-trash fa-lg"></i></button>
+                                <a href="#collapseContent5" class="card-link btn btn-outline-success border border-0" data-toggle="collapse"><i class="fas fa-caret-down fa-2x"></i></a>
+                            </span>
+                            <span>
+                                <h5 class="text-body ">Winter Training Schedule</h5>
+                                4 weeks &ensp; | &ensp; 12 Sessions
+                            </span>
+                        </div>
+
+                        <div id="collapseContent5" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="row mb-4">
+                                    <div class="col-md-2">
+                                        <span class="small">START DATE</span> <br>
+                                        <span class="text-body">25 January 2020</span>
+                                    </div>
+                                    
+                                    <div class="col-md-2">
+                                        <span class="small">END DATE</span> <br>
+                                        <span class="text-body">25 January 2020</span>
+                                    </div>
+
+                                    <div class="col-md-2 offset-6 text-right">
+                                        <button type="button" class="btn btn-success">Update</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-around mt-5 mb-3 brdr">
+                                    <button type="button" class="btn btn-outline-secondary p-3"><i class="far fa-circle"></i> SUNDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> MONDAY</button>
+                                    <button type="button" class="btn btn-outline-success" id="activeDay"><i class="fas fa-circle"></i> TUESDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> WEDNESDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> THURSDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> FRIDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> SATURDAY</button>                             
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-white text-secondary my-4 shadow">
+                        <div class="card-header bg-white">
+                            <span class="float-right">
+                                <button class="btn btn-outline-secondary border border-0"><i class="fas fa-pen fa-lg"></i></button>
+                                <button class="btn btn-outline-danger border border-0"><i class="fas fa-trash fa-lg"></i></button>
+                                <a href="#collapseContent6" class="card-link btn btn-outline-success border border-0" data-toggle="collapse"><i class="fas fa-caret-down fa-2x"></i></a>
+                            </span>
+                            <span>
+                                <h5 class="text-body ">Winter Training Schedule</h5>
+                                4 weeks &ensp; | &ensp; 12 Sessions
+                            </span>
+                        </div>
+
+                        <div id="collapseContent6" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="row mb-4">
+                                    <div class="col-md-2">
+                                        <span class="small">START DATE</span> <br>
+                                        <span class="text-body">25 January 2020</span>
+                                    </div>
+                                    
+                                    <div class="col-md-2">
+                                        <span class="small">END DATE</span> <br>
+                                        <span class="text-body">25 January 2020</span>
+                                    </div>
+
+                                    <div class="col-md-2 offset-6 text-right">
+                                        <button type="button" class="btn btn-success">Update</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-around mt-5 mb-3 brdr">
+                                    <button type="button" class="btn btn-outline-secondary p-3"><i class="far fa-circle"></i> SUNDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> MONDAY</button>
+                                    <button type="button" class="btn btn-outline-success" id="activeDay"><i class="fas fa-circle"></i> TUESDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> WEDNESDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> THURSDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> FRIDAY</button>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="far fa-circle"></i> SATURDAY</button>                             
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </section>
     
