@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!--fontawesome-->
+    <script src="https://kit.fontawesome.com/c8aebbba20.js" crossorigin="anonymous"></script>
+    <!--Bootstrap css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!--customize css-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h2>Logo</h2>
+            </div>
+    
+            <ul class="list-unstyled components">
+                
+                <li>
+                    <a href="#"><i class="fas fa-chart-pie"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-clipboard"></i> Tactics Vault</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-users"></i> Teams</a> 
+                </li>
+                <li class="active">
+                    <a href="#"><i class="fas fa-edit"></i> Schedule Generator</a>
+                </li>
+                <li>
+                    <a href="#"><i class="far fa-calendar-alt"></i> Weekly Training Plans</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-chart-line"></i> Team Metrics</a>
+                </li>
+                <li>
+                    <a href="#"> <i class="fas fa-cog"></i> Customizations</a>
+                </li>
+            </ul>
+        </nav>
+    
+        <!-- Page Content  -->
+        <div id="content" class="bg-light">
+    
+            <nav class="navbar navbar-expand-lg navbar-light bgwhite">
+
+                <!--button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>Toggle Sidebar</span>
+                </button-->
+
+
+                <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Teams</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">U23</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">U19</a>
+                        </li>
+                    </ul>
+                </div>
+            
+            </nav>
+
+            <!--buttons-->
+            <section class="container">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-success">Add New Schedule</button>
+                    <button type="button" class="btn btn-outline-secondary bgwhite"><i class='fas fa-search'></i> Search your schedule</button>
+                </div>
+            </section>
+
+            <!--schedules-->
+            <section class="container">
+                
+            </section>
+    
+        </div>
+    </div>
+    
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--customize JS-->
+    <script src="js/index.js"></script>
+</body>
+</html>
+

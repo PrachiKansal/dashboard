@@ -1,0 +1,142 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+/**{
+    border: 1px solid black;
+     
+}*/
+
+body { 
+    font-family: Poppins;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 16vw;
+    max-width: 16vw;
+    background: #32CD32;
+    color: #fff;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.sidebar-header{
+    padding: 1rem;
+    margin-bottom: 3rem;
+}
+
+.components li {
+    padding: 0.8rem;
+    margin: 0.4rem 0; 
+}
+
+.components li.active{
+    background-color: rgba(255, 255, 255, 0.2);
+    border-right: 5px solid #fff;
+}
+
+.bgwhite{
+    background-color: #fff;
+}
+
+.components li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.navbar {
+    margin:0; 
+    padding:0 4rem;
+}
+
+.nav-item{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 1.2rem;
+    padding: 0.4rem 0;
+}
+
+.active{
+    border-bottom: 6px solid #32CD32;
+}
+
+
+
+
+/*#sidebar.active {
+    margin-left: -250px;
+}*/
+
+/*#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}*/
+
+/*#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}*/
+
+
+/*#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}*/
+
+/*#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}*/
+
+/*#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}*/
+
+/*a[data-toggle="collapse"] {
+    position: relative;
+}*/
+
+/*ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}*/
+
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.visible {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
